@@ -1,90 +1,174 @@
-import React, { useState } from "react";
-import { Formik, Field, Form } from "formik";
+import React from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 const App = () => {
-  const [isFormVisible, setFormVisible] = useState(true);
-
-  const handleClose = () => {
-    close();
+  const initialValues = {
+    CompanyName: "",
+    RegistrationNumber: "",
+    DateofIncorporation: "",
+    BusinessEntityType: "",
+    CompanyAddress: "",
+    PINcode: "",
+    RegistrationCerificate: "",
+    DetailedProjectReport: "",
+    UploadCancelChequePDF: "",
+    BankName: "",
+    BranchName: "",
+    IFSCCode:"",
+    BranchAddress:"",
+    CurrentAccountNumber:"",
+    CurrentAccountHolderName:"",
+    PANNumber:"",
+    GSTNumber:"",
   };
 
   return (
-    isFormVisible && (
-      <div className="fixed inset-0 flex items-center justify-center z-50">
-        <div className="bg-white bg-opacity-75 backdrop-filter backdrop-blur-lg border border-white border-opacity-30 rounded-lg shadow-xl w-96 p-6 relative">
+    // <div className='isolate bg-white px-6 py-24 sm:py-3 lg:px-8 h-screen overflow-y-auto flex flex-col items-center'>
+    //   <div
+		// 		className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
+		// 		aria-hidden="true"
+		// 	/>
+    //   <Formik 
+    //   initialValues={initialValues}
+    //   >
+    //     {() => (
+    //       <Form className='bg-white shadow-2xl my-7 mx-7 rounded-md border border-gray-200 relative'>
+    //         <h1 className="flex justify-center items-center text-center bold mt-3 font-bold border-b border-gray-200 pb-2">Company Information</h1>
+    //       <div className='my-7 mx-7' style={{ marginBottom: "15px" }}>
+    //         <label htmlFor="email">Company Name:</label>
+    //         <Field name="email" type="email" className="form-control border border-gray-300 rounded-md" style={{ width: "100%", padding: "10px", margin: "5px 0" }} />
+    //         <ErrorMessage name="email" component="div" style={{ color: "red" }} />
+    //       </div>
+
+    //       <div className='my-7 mx-7' style={{ marginBottom: "15px" }}>
+    //         <label htmlFor="password">RegistrationNumber :</label>
+    //         <Field name="password" type="password" className="form-control border border-gray-300 rounded-md" style={{ width: "100%", padding: "10px", margin: "5px 0" }} />
+    //         <ErrorMessage name="password" component="div" style={{ color: "red" }} />
+    //       </div>
+
+    //       <div className='my-7 mx-7' style={{ marginBottom: "15px" }}>
+    //         <label htmlFor="password">Date of Incorporation:</label>
+    //         <Field name="password" type="password" className="form-control border border-gray-300 rounded-md" style={{ width: "100%", padding: "10px", margin: "5px 0" }} />
+    //         <ErrorMessage name="password" component="div" style={{ color: "red" }} />
+    //       </div>
+
+    //       <div className='my-7 mx-7' style={{ marginBottom: "15px" }}>
+    //         <label htmlFor="password">Business Entity Type:</label>
+    //         <Field name="password" type="password" className="form-control border border-gray-300 rounded-md" style={{ width: "100%", padding: "10px", margin: "5px 0" }} />
+    //         <ErrorMessage name="password" component="div" style={{ color: "red" }} />
+    //       </div>
+
+    //       <div className='my-7 mx-7' style={{ marginBottom: "15px" }}>
+    //         <label htmlFor="password">Company Address:</label>
+    //         <Field name="password" type="password" className="form-control border border-gray-300 rounded-md" style={{ width: "100%", padding: "10px", margin: "5px 0" }} />
+    //         <ErrorMessage name="password" component="div" style={{ color: "red" }} />
+    //       </div>
+
+    //       <div className='my-7 mx-7' style={{ marginBottom: "15px" }}>
+    //         <label htmlFor="password">PIN Code:</label>
+    //         <Field name="password" type="password" className="form-control border border-gray-300 rounded-md" style={{ width: "100%", padding: "10px", margin: "5px 0" }} />
+    //         <ErrorMessage name="password" component="div" style={{ color: "red" }} />
+    //       </div>
+
+    //       <div className="flex justify-center items-center">
+    //       <button
+    //       className="flex justify-center items-center text-center mb-3"
+    //       type="submit"
+    //       style={{
+    //       padding: "10px 20px",
+    //       background: "#007bff",
+    //       color: "white",
+    //       border: "none",
+    //       borderRadius: "5px",
+    //       cursor: "pointer",
+    //       }}
+    //       >
+    //       Submit
+    //       </button>
+    //       </div>
+    //     </Form>
+    //     )}
+    //   </Formik>
+     
+    // </div>
+<div className="container mx-auto p-4">
+  <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+
+    <div className="col-span-1 lg:col-span-2 bg-red-200 rounded-lg h-full w-2/3">
+    <Formik 
+      initialValues={initialValues}
+      >
+        {() => (
+          <Form className='bg-white shadow-2xl my-7 mx-7 rounded-md border border-gray-200 relative'>
+            <h1 className="flex justify-center items-center text-center bold mt-3 font-bold border-b border-gray-200 pb-2">Company Information</h1>
+          <div className='my-7 mx-7' style={{ marginBottom: "15px" }}>
+            <label htmlFor="email">Company Name:</label>
+            <Field name="email" type="email" className="form-control border border-gray-300 rounded-md" style={{ width: "100%", padding: "10px", margin: "5px 0" }} />
+            <ErrorMessage name="email" component="div" style={{ color: "red" }} />
+          </div>
+
+          <div className='my-7 mx-7' style={{ marginBottom: "15px" }}>
+            <label htmlFor="password">RegistrationNumber :</label>
+            <Field name="password" type="password" className="form-control border border-gray-300 rounded-md" style={{ width: "100%", padding: "10px", margin: "5px 0" }} />
+            <ErrorMessage name="password" component="div" style={{ color: "red" }} />
+          </div>
+
+          <div className='my-7 mx-7' style={{ marginBottom: "15px" }}>
+            <label htmlFor="password">Date of Incorporation:</label>
+            <Field name="password" type="password" className="form-control border border-gray-300 rounded-md" style={{ width: "100%", padding: "10px", margin: "5px 0" }} />
+            <ErrorMessage name="password" component="div" style={{ color: "red" }} />
+          </div>
+
+          <div className='my-7 mx-7' style={{ marginBottom: "15px" }}>
+            <label htmlFor="password">Business Entity Type:</label>
+            <Field name="password" type="password" className="form-control border border-gray-300 rounded-md" style={{ width: "100%", padding: "10px", margin: "5px 0" }} />
+            <ErrorMessage name="password" component="div" style={{ color: "red" }} />
+          </div>
+
+          <div className='my-7 mx-7' style={{ marginBottom: "15px" }}>
+            <label htmlFor="password">Company Address:</label>
+            <Field name="password" type="password" className="form-control border border-gray-300 rounded-md" style={{ width: "100%", padding: "10px", margin: "5px 0" }} />
+            <ErrorMessage name="password" component="div" style={{ color: "red" }} />
+          </div>
+
+          <div className='my-7 mx-7' style={{ marginBottom: "15px" }}>
+            <label htmlFor="password">PIN Code:</label>
+            <Field name="password" type="password" className="form-control border border-gray-300 rounded-md" style={{ width: "100%", padding: "10px", margin: "5px 0" }} />
+            <ErrorMessage name="password" component="div" style={{ color: "red" }} />
+          </div>
+
+          <div className="flex justify-center items-center">
           <button
-            onClick={handleClose}
-            className="absolute top-2 right-2 text-[#3B82F6] hover:text-blue-600"
+          className="flex justify-center items-center text-center mb-3"
+          type="submit"
+          style={{
+          padding: "10px 20px",
+          background: "#007bff",
+          color: "white",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+          }}
           >
-            ✕
+          Submit
           </button>
-          <h2 className="text-2xl font-semibold mb-4 text-center">Update Business Details</h2>
-          <Formik
-            initialValues={{
-              employeecount: "",
-              workOrders: "",
-              projects: "",
-              reveuneLY: "",
-            }}
-            onSubmit={() => {}}
-          >
-            {() => (
-              <Form>
-                <div className="mb-4">
-                  <label className="block text-gray-700 mb-2">Employee Count</label>
-                  <Field
-                    type="number"
-                    name="employeecount"
-                    placeholder="Enter Employee Count"
-                    className="w-full p-2 bg-transparent border border-gray-300 rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
+          </div>
+        </Form>
+        )}
+      </Formik>
+    </div>
 
-                <div className="mb-4">
-                  <label className="block text-gray-700 mb-2">Work Orders</label>
-                  <Field
-                    type="number"
-                    name="workOrders"
-                    placeholder="Enter Work Orders"
-                    className="w-full p-2 bg-transparent border border-gray-300 rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
 
-                <div className="mb-4">
-                  <label className="block text-gray-700 mb-2">Projects</label>
-                  <Field
-                    type="number"
-                    name="projects"
-                    placeholder="Enter Projects"
-                    className="w-full p-2 bg-transparent border border-gray-300 rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
+    <div className="flex flex-col gap-2">
 
-                <div className="mb-4">
-                  <label className="block text-gray-700 mb-2">Revenue Last Year</label>
-                  <Field
-                    type="number"
-                    name="reveuneLY"
-                    placeholder="Enter Revenue Last Year"
-                    className="w-full p-2 bg-transparent border border-gray-300 rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
+      <div className="bg-gray-200 rounded-lg h-96 w-full"></div>
 
-                <div className="text-center">
-                  <button
-                    type="submit"
-                    className="bg-[#3B82F6] text-white px-4 py-2 rounded shadow hover:bg-blue-600 transition"
-                  >
-                    Update Details
-                  </button>
-                </div>
-              </Form>
-            )}
-          </Formik>
-        </div>
-      </div>
-    )
-  );
-};
+
+      <div className="bg-gray-200 rounded-lg h-48"></div>
+    </div>
+  </div>
+</div>
+  )
+}
 
 export default App
