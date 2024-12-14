@@ -92,14 +92,14 @@ const App = () => {
      
     // </div>
 <div className="container mx-auto p-4">
-  <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+<div className="gap-4 m-4 grid sm:grid-cols-12">
 
-    <div className="col-span-1 lg:col-span-2 bg-red-200 rounded-lg h-full w-2/3">
+<div className="min-h-[100px] rounded shadow sm:col-span-6">
     <Formik 
       initialValues={initialValues}
       >
         {() => (
-          <Form className='bg-white shadow-2xl my-7 mx-7 rounded-md border border-gray-200 relative'>
+          <Form className='bg-white shadow-2xl rounded-md border border-gray-200 relative'>
             <h1 className="flex justify-center items-center text-center bold mt-3 font-bold border-b border-gray-200 pb-2">Company Information</h1>
           <div className='my-7 mx-7' style={{ marginBottom: "15px" }}>
             <label htmlFor="email">Company Name:</label>
@@ -159,13 +159,16 @@ const App = () => {
     </div>
 
 
-    <div className="flex flex-col gap-2">
+    <div className="min-h-[100px] rounded shadow sm:col-span-6 flex flex-col space-y-2">
 
-      <div className="bg-gray-200 rounded-lg h-96 w-full"></div>
-
-
-      <div className="bg-gray-200 rounded-lg h-48"></div>
+    <div className="flex-1 rounded bg-teal-400 flex justify-center items-center">
+      Top Half
     </div>
+ 
+    <div className="flex-1 rounded bg-teal-600 flex justify-center items-center">
+      Bottom Half
+    </div>
+  </div>
   </div>
 </div>
   )
